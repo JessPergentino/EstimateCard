@@ -1,18 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/mainActivity_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seja Bem Vindo ao EstimateCard"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+         />
+
+    <TextView
+        android:id="@+id/mainActivity_text_saldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informe o seu saldo atual:"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        />
+
+    <EditText
+        android:id="@+id/mainActivity_saldo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="15dp"
+        android:background="#FFFFFF"
+        android:ems="7"
+        android:hint="Saldo"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textStyle="italic" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/mainActivity_text_tarifa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informe o valor da tarifa:"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:id="@+id/mainActivity_tarifa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:hint="Tarifa"
+        android:textStyle="italic"
+        android:ems="7"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="80dp"
+        android:padding="5dp"
+        />
+
+    <Button
+        android:id="@+id/mainActivity_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>

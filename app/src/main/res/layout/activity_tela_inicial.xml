@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TelaInicialActivity">
+
+    <TextView
+        android:id="@+id/TelaInicialActivity_text_saldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seu Saldo é de:"
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="15sp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/TelaInicialActivity_saldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="Saldo Aqui"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:id="@+id/TelaInicialActivity_text_tarifa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="Tarifa Informada:"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/TelaInicialActivity_tarifa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:textSize="15sp"
+        android:text="Tarifa aqui"
+        />
+
+    <Button
+        android:id="@+id/TelaInicialActivity_buttonUsei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Usar"
+        />
+
+    <Button
+        android:id="@+id/TelaInicialActivity_buttonEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Editar Tarifa"/>
+
+    <Button
+        android:id="@+id/TelaInicialActivity_buttonRecarregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Regaregar"/>
+</LinearLayout>
