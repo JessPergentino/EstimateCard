@@ -8,38 +8,41 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText saldo;
-    private EditText tarifa;
-    private Button botaoEntrar;
+    private ViewHolder mViewHolder = new ViewHolder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        saldo = findViewById(R.id.mainActivity_saldo);
-        tarifa = findViewById(R.id.mainActivity_tarifa);
-        botaoEntrar = findViewById(R.id.mainActivity_button);
+        this.mViewHolder.saldo = findViewById(R.id.mainActivity_saldo);
+        this.mViewHolder.tarifa = findViewById(R.id.mainActivity_tarifa);
+        this.mViewHolder.botaoEntrar = findViewById(R.id.mainActivity_button);
+        this.mViewHolder.botaoEntrar.setOnClickListener(this);
 
-        botaoEntrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (saldo.getText().length() == 0 || tarifa.length() == 0){
-                    Toast.makeText(MainActivity.this, "Por favor, Preencha os Campos!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(MainActivity.this, TelaInicialActivity.class);
-                    intent.putExtra("saldo", saldo.getText().toString());
-                    intent.putExtra("tarifa", tarifa.getText().toString());
-                    startActivity(intent);
-                    finish();
-                }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.mainActivity_button)
+            if (this.mViewHolder.saldo.getText().length() == 0 || this.mViewHolder.tarifa.length() == 0) {
+                Toast.makeText(MainActivity.this, "Por favor, Preencha os Campos!", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(MainActivity.this, TelaInicialActivity.class);
+                intent.putExtra("saldo", this.mViewHolder.saldo.getText().toString());
+                intent.putExtra("tarifa", this.mViewHolder.tarifa.getText().toString());
+                startActivity(intent);
+                finish();
             }
+    }
 
-        }
-
-        );
-
+    private static class ViewHolder{
+        EditText saldo;
+        EditText tarifa;
+        Button botaoEntrar;
     }
 }

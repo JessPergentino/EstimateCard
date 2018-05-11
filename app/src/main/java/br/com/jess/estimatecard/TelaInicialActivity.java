@@ -8,14 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class TelaInicialActivity extends AppCompatActivity {
+public class TelaInicialActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private String saldo;
-    private String tarifa;
-    private TextView saldoText;
-    private TextView tarifaText;
-    private Button botaoUsei;
-    private Button botaoRecarregar;
+    private ViewHolder mViewHolder = new ViewHolder();
+    private String saldo = "";
+    private String tarifa = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +25,39 @@ public class TelaInicialActivity extends AppCompatActivity {
         saldo = intent.getStringExtra("saldo");
         tarifa = intent.getStringExtra("tarifa");
 
-        saldoText = this.findViewById(R.id.TelaInicialActivity_saldo);
-        saldoText.setText(saldo);
+        this.mViewHolder.saldoText = this.findViewById(R.id.TelaInicialActivity_saldo);
+        this.mViewHolder.saldoText.setText(saldo);
 
-        tarifaText = this.findViewById(R.id.TelaInicialActivity_tarifa);
-        tarifaText.setText(tarifa);
+        this.mViewHolder.tarifaText = this.findViewById(R.id.TelaInicialActivity_tarifa);
+        this.mViewHolder.tarifaText.setText(tarifa);
 
-        botaoUsei.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Double s = Double.parseDouble(saldo);
-                Double t = Double.parseDouble(tarifa);
+        this.mViewHolder.botaoUsar = findViewById(R.id.TelaInicialActivity_buttonUsar);
+        this.mViewHolder.botaoUsar.setOnClickListener(this);
 
-                Double novoSaldo = s - t;
-                saldoText.setText(String.valueOf(novoSaldo));
-            }
-        });
+        this.mViewHolder.botaoRecarregar = findViewById(R.id.TelaInicialActivity_buttonRecarregar);
+        this.mViewHolder.botaoRecarregar.setOnClickListener(this);
 
     }
 
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.TelaInicialActivity_buttonUsar){
+            Double s = Double.valueOf(saldo);
+            Double t = Double.valueOf(tarifa);
+
+            Double novoSaldo = s - t;
+            this.mViewHolder.saldoText.setText(String.format("%.2f", novoSaldo));
+        }
+
+
+    }
+
+    private static class ViewHolder{
+        TextView saldoText;
+        TextView tarifaText;
+        Button botaoUsar;
+        Button botaoRecarregar;
+    }
 
 }
